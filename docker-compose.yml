@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: hera_palace
+      POSTGRES_USER: hera
+      POSTGRES_PASSWORD: change-this-password
+    ports:
+      - "5432:5432"
+    volumes:
+      - hera_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hera -d hera_palace"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  hera_postgres_data:

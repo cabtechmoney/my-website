@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "name": "Gold Pendant Necklace",
+    "category": "jewelry",
+    "price": 299.99,
+    "image": "https://picsum.photos/id/1/500/500",
+    "description": "18k gold pendant with crystal accents"
+  },
+  {
+    "id": 2,
+    "name": "Diamond Earrings",
+    "category": "jewelry",
+    "price": 599.99,
+    "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500&h=500&fit=crop",
+    "description": "Luxurious diamond stud earrings"
+  },
+  {
+    "id": 3,
+    "name": "Silk Evening Gown",
+    "category": "clothes",
+    "price": 450.00,
+    "image": "https://picsum.photos/id/26/500/500",
+    "description": "Exquisite black silk gown with elegant draping"
+  },
+  {
+    "id": 4,
+    "name": "Designer Blazer",
+    "category": "clothes",
+    "price": 380.00,
+    "image": "https://images.unsplash.com/photo-1539533057440-7814bae87b9f?w=500&h=500&fit=crop",
+    "description": "Premium tailored blazer in navy blue"
+  },
+  {
+    "id": 5,
+    "name": "Leather Heels",
+    "category": "shoes",
+    "price": 320.00,
+    "image": "https://picsum.photos/id/21/500/500",
+    "description": "Luxury leather high heels in burgundy"
+  },
+  {
+    "id": 6,
+    "name": "Designer Sneakers",
+    "category": "shoes",
+    "price": 280.00,
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500&fit=crop",
+    "description": "Premium white leather designer sneakers"
+  },
+  {
+    "id": 7,
+    "name": "Luxury Watch",
+    "category": "jewelry",
+    "price": 799.99,
+    "image": "https://picsum.photos/id/58/500/500",
+    "description": "Swiss movement luxury watch with leather strap"
+  },
+  {
+    "id": 8,
+    "name": "Cashmere Coat",
+    "category": "clothes",
+    "price": 520.00,
+    "image": "https://images.unsplash.com/photo-1539533057440-7814bae87b9f?w=500&h=500&fit=crop",
+    "description": "Premium cashmere wool blend coat in cream"
+  },
+  {
+    "id": 9,
+    "name": "Sapphire Bracelet",
+    "category": "jewelry",
+    "price": 649.99,
+    "image": "https://picsum.photos/id/64/500/500",
+    "description": "Exquisite sapphire and gold bracelet"
+  },
+  {
+    "id": 10,
+    "name": "Summer Dress",
+    "category": "clothes",
+    "price": 250.00,
+    "image": "https://images.unsplash.com/photo-1595777707802-4b126a5008fd?w=500&h=500&fit=crop",
+    "description": "Light and breezy floral summer dress"
+  },
+  {
+    "id": 11,
+    "name": "Oxford Loafers",
+    "category": "shoes",
+    "price": 350.00,
+    "image": "https://picsum.photos/id/112/500/500",
+    "description": "Classic leather oxford loafers in black"
+  },
+  {
+    "id": 12,
+    "name": "Pearl Ring",
+    "category": "jewelry",
+    "price": 450.00,
+    "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500&h=500&fit=crop",
+    "description": "Elegant pearl and diamond ring"
+  },
+  {
+    "id": 13,
+    "name": "Wool Cardigan",
+    "category": "clothes",
+    "price": 320.00,
+    "image": "https://picsum.photos/id/127/500/500",
+    "description": "Soft merino wool cardigan in sage green"
+  },
+  {
+    "id": 14,
+    "name": "Ankle Boots",
+    "category": "shoes",
+    "price": 400.00,
+    "image": "https://images.unsplash.com/photo-1543163521-9145f931371e?w=500&h=500&fit=crop",
+    "description": "Luxury leather ankle boots in taupe"
+  },
+  {
+    "id": 15,
+    "name": "Gold Choker",
+    "category": "jewelry",
+    "price": 349.99,
+    "image": "https://picsum.photos/id/164/500/500",
+    "description": "Minimalist gold choker necklace"
+  },
+  {
+    "id": 16,
+    "name": "Linen Pants",
+    "category": "clothes",
+    "price": 280.00,
+    "image": "https://images.unsplash.com/photo-1595777707802-4b126a5008fd?w=500&h=500&fit=crop",
+    "description": "Comfortable linen pants in cream"
+  }
+]

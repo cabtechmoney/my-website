@@ -1,0 +1,2 @@
+# Hera Palace API
+

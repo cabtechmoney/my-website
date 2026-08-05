@@ -1,0 +1,150 @@
+.product-slider-container {
+  padding: 2rem 0;
+  background: #f8f9fa;
+}
+
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.slider-content {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.product-item {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border: 2px solid #333;
+  background: white;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  color: #333;
+}
+
+.slider-btn:hover {
+  background: #333;
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  left: -2rem;
+}
+
+.next-btn {
+  right: -2rem;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #333;
+}
+
+.dot:hover {
+  border-color: #666;
+}
+
+@media (max-width: 1200px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .slider-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+
+  .prev-btn {
+    left: -1.5rem;
+  }
+
+  .next-btn {
+    right: -1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .slider-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+
+  .prev-btn {
+    left: -1rem;
+  }
+
+  .next-btn {
+    right: -1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .slider-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .slider-dots {
+    gap: 0.5rem;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+}
