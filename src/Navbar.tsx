@@ -24,18 +24,21 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg fixed-top navbar-luxury" style={{ zIndex: 1030 }}>
       <div className="container-fluid px-4">
-        <Link className="navbar-brand text-white" to="/" style={{ fontSize: '2rem', fontFamily: "'Cormorant Garamond', serif", letterSpacing: '0.05em' }}>
-          Hera Palace
+        <Link className="navbar-brand" to="/" aria-label="Hera Palace home">
+          <span className="brand-lockup">
+            <span className="brand-name">Hera Palace</span>
+            <span className="brand-note">Objects of desire</span>
+          </span>
         </Link>
         <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <MenuIcon size={24} color="white" />
+          <MenuIcon size={24} color="#173d34" />
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <form className="mx-auto d-none d-lg-block" onSubmit={handleSearch} style={{ maxWidth: '280px', width: '100%' }}>
             <div className="input-group input-group-sm">
               <input type="text" className="form-control bg-transparent text-white border-secondary" placeholder="Search products..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} style={{ borderRadius: '50px 0 0 50px', fontSize: '0.85rem' }} />
-              <button type="submit" aria-label="Search products" className="btn btn-outline-secondary text-white-50 border-secondary" style={{ borderRadius: '0 50px 50px 0' }}>
-                <SearchIcon size={14} color="rgba(255,255,255,0.5)" />
+              <button type="submit" aria-label="Search products" className="btn btn-outline-secondary" style={{ borderRadius: '0 50px 50px 0' }}>
+                <SearchIcon size={14} color="currentColor" />
               </button>
             </div>
           </form>
@@ -89,8 +92,8 @@ export default function Navbar() {
       </div>
       <style>{`
         .hover-gold:hover { color: #c9a84c !important; }
-        .bg-gold { background-color: #c9a84c; }
-        .dropdown-menu .dropdown-item:hover { background-color: #f9f6f0; color: #c9a84c; }
+        .bg-gold { background-color: #d95d42; }
+        .dropdown-menu .dropdown-item:hover { background-color: #f4f1e9; color: #a83e2d; }
       `}</style>
     </nav>
   );

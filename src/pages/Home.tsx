@@ -5,6 +5,7 @@ import Testimonials from '../Testimonials';
 import ProductSlider from '../components/ProductSlider';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
+import { Link } from 'react-router-dom';
 import { newsletter } from '../services/api';
 import { loadCatalog } from '../services/catalog';
 import '../styles/LoadingSkeleton.css';
@@ -51,19 +52,15 @@ export default function Home() {
       <Hero />
       <Features />
 
-      {/* Featured Products Section */}
-      <section className="py-5 bg-cream">
+      <section className="home-collection">
         <div className="container">
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-5"
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '2.5rem' }}
-          >
-            Featured <span style={{ color: '#c9a84c' }}>Collection</span>
-          </motion.h2>
+          <div className="home-section-heading">
+            <div>
+              <p className="eyebrow">Selected for this season</p>
+              <h2 className="section-title">The considered collection</h2>
+            </div>
+            <Link to="/products">Discover all pieces <span aria-hidden="true">↗</span></Link>
+          </div>
           {loading ? (
             <div className="row g-4">
               {[1,2,3,4].map(i => (
@@ -78,42 +75,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="py-5" style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)' }}>
-        <div className="container text-center">
+      <section className="home-newsletter">
+        <div className="container newsletter-layout">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-white mb-3" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '2.2rem' }}>
-              Join the Hera Palace Circle
-            </h2>
-            <p className="text-white-50 mb-4 mx-auto" style={{ maxWidth: '500px' }}>
-              Subscribe for exclusive updates, early access to new collections, and members-only offers.
-            </p>
-            <form className="d-flex justify-content-center gap-2 flex-wrap" onSubmit={subscribe}>
+            <p className="eyebrow">Notes from the house</p>
+            <h2>Good things, delivered occasionally.</h2>
+            <p>New arrivals, thoughtful edits, and little reasons to look forward to your inbox.</p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.12 }}
+            viewport={{ once: true }}
+          >
+            <form className="newsletter-form" onSubmit={subscribe}>
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Your email address"
                 className="form-control"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 aria-label="Email address"
-                style={{ maxWidth: '350px', borderRadius: '50px', padding: '0.8rem 1.5rem' }}
                 required
               />
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 type="submit"
                 disabled={isSubscribing}
-                className="btn text-dark fw-bold px-4"
-                style={{ borderRadius: '50px', background: '#c9a84c' }}
+                className="btn btn-dark"
               >
-                {isSubscribing ? 'Subscribing…' : 'Subscribe'}
-              </motion.button>
+                {isSubscribing ? 'Joining…' : 'Sign me up'}
+              </button>
             </form>
           </motion.div>
         </div>

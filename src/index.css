@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 :root {
-  --font-heading: 'Cormorant Garamond', serif;
-  --font-body: 'Inter', sans-serif;
-  --color-bg: #faf7f2;
-  --color-dark: #0a0a0a;
-  --color-gold: #c9a84c;
-  --color-gold-light: #e8d5a3;
-  --color-cream: #f9f6f0;
-  --color-text: #1e1e1e;
-  --color-text-light: #6b6b6b;
-  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.06);
-  --shadow-lift: 0 20px 60px rgba(0, 0, 0, 0.12);
-  --radius-card: 16px;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+  --color-bg: #f4f1e9;
+  --color-dark: #173d34;
+  --color-gold: #d95d42;
+  --color-gold-light: #f1b69e;
+  --color-cream: #f4f1e9;
+  --color-text: #1b302b;
+  --color-text-light: #68756e;
+  --shadow-soft: 0 8px 32px rgba(23, 61, 52, 0.08);
+  --shadow-lift: 0 20px 60px rgba(23, 61, 52, 0.16);
+  --radius-card: 4px;
 }
 
 * {
@@ -32,7 +32,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
 }
 
 a {
@@ -59,20 +59,7 @@ textarea {
   outline-offset: 3px;
 }
 
-.product-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(26, 26, 46, 0.12);
-}
-
 @media (max-width: 575.98px) {
-  .section-title {
-    font-size: clamp(2rem, 9vw, 2.75rem);
-  }
-
   .product-card:hover {
     transform: none;
   }

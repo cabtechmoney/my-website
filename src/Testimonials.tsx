@@ -8,16 +8,16 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="py-5 bg-cream">
+    <section className="home-testimonials">
       <div className="container">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-5 section-title"
+          className="mb-5 section-title"
         >
-          What Our <span>Clients Say</span>
+          A few kind words <span>from the fitting room</span>
         </motion.h2>
         <div className="row g-4">
           {testimonials.map((testimonial, index) => (
@@ -35,7 +35,7 @@ export default function Testimonials() {
                     <span key={i} style={{ color: '#c9a84c', fontSize: '1.2rem' }}>★</span>
                   ))}
                 </div>
-                <p className="text-muted flex-grow-1" style={{ fontStyle: 'italic', lineHeight: '1.7' }}>
+                <p className="testimonial-quote flex-grow-1">
                   "{testimonial.text}"
                 </p>
                 <div className="mt-3">
