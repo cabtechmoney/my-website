@@ -16,9 +16,18 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-local-developm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', 'false').lower() == 'true'
 
-ALLOWED_HOSTS = [host for host in os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',') if host]
+
+def _split_csv(value: str, default: str = '') -> list[str]:
+    return [item.strip() for item in (value or default).split(',') if item.strip()]
+
+
+ALLOWED_HOSTS = _split_csv(os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1'))
 if render_host := os.environ.get('RENDER_EXTERNAL_HOSTNAME'):
-    ALLOWED_HOSTS.append(render_host)
+    ALLOWED_HOSTS.append(render_host.strip())
+if vercel_host := os.environ.get('VERCEL_URL'):
+    ALLOWED_HOSTS.append(vercel_host.strip())
+
+ALLOWED_HOSTS = list(dict.fromkeys(ALLOWED_HOSTS))
 
 # Application definition
 INSTALLED_APPS = [
@@ -106,9 +115,12 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS
-CORS_ALLOWED_ORIGINS = [
-    origin for origin in os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:5173,http://127.0.0.1:5173').split(',') if origin
-]
+CORS_ALLOWED_ORIGINS = _split_csv(
+    os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:5173,http://127.0.0.1:5173')
+)
+if vercel_url := os.environ.get('VERCEL_URL'):
+    CORS_ALLOWED_ORIGINS.append(f'https://{vercel_url.strip()}')
+CORS_ALLOWED_ORIGINS = list(dict.fromkeys(CORS_ALLOWED_ORIGINS))
 CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS
 
 # REST Framework
