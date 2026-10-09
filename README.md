@@ -29,7 +29,7 @@ python manage.py seed_data
 python manage.py runserver
 ```
 
-The frontend defaults to `http://localhost:8000/api`. Override it by setting `VITE_API_BASE_URL` in a local frontend `.env` file.
+Set the frontend API base URL to an absolute URL ending in `/api`, for example `VITE_API_BASE_URL=http://localhost:8000/api` in a local frontend `.env` file. Set the same variable to the deployed backend URL in the frontend's production environment.
 
 ## Payments
 

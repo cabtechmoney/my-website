@@ -1,4 +1,16 @@
-const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api';
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
+
+function buildApiUrl(endpoint: string): string {
+  if (!API_BASE) throw new Error('VITE_API_BASE_URL is not configured');
+
+  const queryIndex = endpoint.indexOf('?');
+  const path = queryIndex === -1 ? endpoint : endpoint.slice(0, queryIndex);
+  const query = queryIndex === -1 ? '' : endpoint.slice(queryIndex);
+  const normalizedPath = `${path.replace(/^\/+|\/+$/g, '')}/`;
+  const base = `${API_BASE.replace(/\/+$/, '')}/`;
+
+  return new URL(`${normalizedPath}${query}`, base).toString();
+}
 
 interface RequestOptions {
   method?: string;
@@ -14,8 +26,8 @@ async function request<T>(endpoint: string, options: RequestOptions = {}): Promi
   };
   if (token) headers['Authorization'] = `Bearer ${token}`;
 
-  const res = await fetch(`${API_BASE}${endpoint}`, {
-    method: options.method || 'GET',
+  const res = await fetch(buildApiUrl(endpoint), {
+    method: options.method || 'POST',
     headers,
     body: options.body ? JSON.stringify(options.body) : undefined,
   });
