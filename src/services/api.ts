@@ -1,15 +1,25 @@
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL?.trim() ||
+  import.meta.env.VITE_API_BASE_URL?.trim() ||
+  'http://localhost:8000';
 
 function buildApiUrl(endpoint: string): string {
-  if (!API_BASE) throw new Error('VITE_API_BASE_URL is not configured');
+  const rawBase = /^https?:\/\//i.test(API_BASE_URL) ? API_BASE_URL : `https://${API_BASE_URL}`;
+  const base = new URL(rawBase);
+  const isLocalHost = ['localhost', '127.0.0.1', '[::1]'].includes(base.hostname);
+  base.protocol = isLocalHost ? 'http:' : 'https:';
+  base.search = '';
+  base.hash = '';
 
   const queryIndex = endpoint.indexOf('?');
   const path = queryIndex === -1 ? endpoint : endpoint.slice(0, queryIndex);
   const query = queryIndex === -1 ? '' : endpoint.slice(queryIndex);
-  const normalizedPath = `${path.replace(/^\/+|\/+$/g, '')}/`;
-  const base = `${API_BASE.replace(/\/+$/, '')}/`;
+  const basePath = base.pathname.replace(/\/api\/?$/i, '').replace(/\/+$/, '');
+  const endpointPath = path.replace(/^\/+|\/+$/g, '');
+  base.pathname = `${basePath}/api/${endpointPath}/`;
+  base.search = query;
 
-  return new URL(`${normalizedPath}${query}`, base).toString();
+  return base.toString();
 }
 
 interface RequestOptions {

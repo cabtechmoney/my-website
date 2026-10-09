@@ -29,7 +29,7 @@ python manage.py seed_data
 python manage.py runserver
 ```
 
-Set the frontend API base URL to an absolute URL ending in `/api`, for example `VITE_API_BASE_URL=http://localhost:8000/api` in a local frontend `.env` file. Set the same variable to the deployed backend URL in the frontend's production environment.
+The frontend uses `VITE_API_URL` for the backend origin, for example `VITE_API_URL=http://localhost:8000` in a local `.env` file. If it is unset, the frontend falls back to `http://localhost:8000`. Set it to the deployed backend host in the production environment; non-local hosts use HTTPS. The older `VITE_API_BASE_URL` variable is also supported, with or without a trailing `/api`.
 
 ## Payments
 
